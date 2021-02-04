@@ -3,10 +3,8 @@
  * @license MIT
  */
 
- const Tiktok = require('./Tiktok.js')
- const YT = require('./YT.js')
+ const Muslim = require('./Muslim.js')
 
  module.exports = {
-     Tiktok,
-     YT
+     Muslim
  }
