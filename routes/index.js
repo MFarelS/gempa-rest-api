@@ -27,7 +27,7 @@ app.get("/api/image/muslim", (req, res) => {
     res.setHeader("Cache-Control", "public,max-age=3600,s-maxage=30");
     setImmediate(() => {
       try {
-          Zahir.Muslim()
+          Zahir.Muslim(url)
             .then((data) => {
               res.json(data);
             })
