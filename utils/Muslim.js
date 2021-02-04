@@ -1,3 +1,8 @@
+/**
+ * @author Zahir Hadi Athallah <zhirrrstudio@gmail.com>
+ * @license MIT
+ */
+
 const fetch = require('node-fetch')
 async function Random() {
     let c;
