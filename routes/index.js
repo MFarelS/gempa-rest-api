@@ -27,12 +27,10 @@ app.get("/api/image/muslim", (req, res) => {
     res.setHeader("Cache-Control", "public,max-age=3600,s-maxage=30");
     setImmediate(() => {
       try {
-          Zahir.Muslim(url)
+          Zahir.Muslim()
             .then((data) => {
               res.json(data);
             })
-            .catch((err) => console.log(err));
-        }
       } catch (e) {
         res.status(400).send("Server Bermasalah Gan");
       }
