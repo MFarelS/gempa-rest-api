@@ -22,7 +22,12 @@ const Muslim = () => new Promise((resolve, reject) => {
 		resolve({
 			image: url
 		})
-	}).catch(err => { reject(err) })
+	} catch (error) {
+        reject({
+			code:400,
+			message: error
+		});
+    }
 })
 
 module.exports = Muslim
