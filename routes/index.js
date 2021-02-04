@@ -23,20 +23,11 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/api/tiktok", (req, res) => {
-    const url = req.query.url
+app.get("/api/image/muslim", (req, res) => {
     res.setHeader("Cache-Control", "public,max-age=3600,s-maxage=30");
     setImmediate(() => {
       try {
-        if(url == '' || url == null){
-          res.status(400).send({
-            code: res.statusCode,
-            success: false,
-            message: "Query Gak Boleh Kosong!",
-            creator: "Zhirrr"
-          });
-        }else{
-          Zahir.Tiktok(url)
+          Zahir.Muslim()
             .then((data) => {
               res.json(data);
             })
@@ -47,32 +38,6 @@ app.get("/api/tiktok", (req, res) => {
       }
     });
 });
-
-app.get("/api/yt", (req, res) => {
-    const url = req.query.url
-    res.setHeader("Cache-Control", "public,max-age=3600,s-maxage=30");
-    setImmediate(() => {
-      try {
-        if(url == '' || url == null){
-          res.status(400).send({
-            code: res.statusCode,
-            success: false,
-            message: "Query Gak Boleh Kosong!",
-            creator: "Zhirrr"
-          });
-        }else{
-          Zahir.YT(link)
-            .then((data) => {
-              res.json(data);
-            })
-            .catch((err) => console.log(err));
-        }
-      } catch (e) {
-        res.status(400).send("Server Bermasalah Gan");
-      }
-    });
-});
-
 
 app.use(express.urlencoded({ extended: false }));
 app.listen(port, () => {
