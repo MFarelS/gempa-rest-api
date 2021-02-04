@@ -23,13 +23,14 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/api/image/muslim", (req, res) => {
+app.get("/api/muslim", (req, res) => {
     res.setHeader("Cache-Control", "public,max-age=3600,s-maxage=30");
     setImmediate(() => {
       try {
           Zahir.Muslim()
-            .then((data) => {
-              res.json(data);
+            .then((url) => {
+              res.json(url);
+            })
       } catch (e) {
         res.status(400).send("Server Bermasalah Gan");
       }
