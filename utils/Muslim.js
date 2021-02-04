@@ -20,7 +20,7 @@ async function Random() {
 const Muslim = () => new Promise((resolve, reject) => {
     Random().then(url => {
 		resolve({
-			image: url
+			url
 		})
 	} catch (error) {
         reject({
