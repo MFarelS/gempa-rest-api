@@ -30,7 +30,6 @@ app.get("/api/image/muslim", (req, res) => {
           Zahir.Muslim()
             .then((data) => {
               res.json(data);
-            })
       } catch (e) {
         res.status(400).send("Server Bermasalah Gan");
       }
