@@ -3,8 +3,6 @@
  * @license MIT
  */
 
- const Muslim = require('./Muslim.js')
-
  module.exports = {
-     Muslim
- }
+    Muslim: require('./Muslim')
+}
