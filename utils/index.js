@@ -3,6 +3,8 @@
  * @license MIT
  */
 
+const Gempa = require ('./Gempa.js')
+
  module.exports = {
-    Muslim: require('./Muslim')
+    Gempa
 }
