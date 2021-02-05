@@ -1,7 +1,7 @@
 <div align="center">
 <h1>Info Gempa Rest API Official</h1>
 
-<p>Pengen Liat Gempa Yg Berlangsung Atau Kemarin Dari Seluruh Indonesia?</p>
+<p>Pengen Liat Gempa Yg Terkini Dari Seluruh Indonesia?</p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
 </div>
