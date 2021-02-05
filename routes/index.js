@@ -1,54 +1,18 @@
-const express = require("express");
-const app = express();
-const port = 8080;
-const cors = require("cors");
-const http = require("http");
-const https = require("https");
-const path = require("path")
-const Zahir = require('../utils')
+const express = require('express')
+const router  = express.Router()
 
-http.globalAgent.maxSockets = Infinity;
-https.globalAgent.maxSockets = Infinity;
+const {
+	Muslim
+} = require('../utils')
 
-app.use(cors());
+router.get('/api/wallpaper/muslim', (req, res) => {
+	Muslim()
+			.then(url => {
+				res.send(url)
+			})
+			.catch(err => {
+				res.send(err);
+			})
+})
 
-app.get("/", (req, res) => {
-  setImmediate(() => {
-    try {
-      res.setHeader("Cache-Control", "public,max-age=0");
-      res.sendFile(path.join(__dirname, "../index.html"));
-    } catch (e) {
-      res.status(400).send("Something went wrong");
-    }
-  });
-});
-
-app.get("/api/wallpaper", (req, res) => {
-   const tema = req.query.tema
-    res.setHeader("Cache-Control", "public,max-age=3600,s-maxage=30");
-    setImmediate(() => {
-      try {
-        if(tema == '' || tema == null){
-          res.status(400).send({
-            code: res.statusCode,
-            success: false,
-            message: "Query Gak Boleh Kosong!",
-            creator: "Zhirrr"
-          });
-        }else{
-          Zahir.Wallpaper(tema)
-            .then((data) => {
-              res.json(data);
-            })
-            .catch((err) => console.log(err));
-        }
-      } catch (e) {
-        res.status(400).send("Server Bermasalah Gan");
-      }
-    });
-});
-
-app.use(express.urlencoded({ extended: false }));
-app.listen(port, () => {
-  console.log(`Server listen on port ${port}`);
-});
+module.exports = router
