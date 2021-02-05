@@ -24,18 +24,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/muslim", (req, res) => {
-    res.setHeader("Cache-Control", "public,max-age=3600,s-maxage=30");
-    setImmediate(() => {
-      try {
-          Zahir.Muslim()
-            .then((url) => {
-              res.json(url);
-            })
-      } catch (e) {
-        res.status(400).send("Server Bermasalah Gan");
-      }
-    });
-});
+    Zahir.Muslim()
+			.then(url => {
+				res.send(url)
+			})
+			.catch(err => {
+				res.send(err);
+			})
+})
 
 app.use(express.urlencoded({ extended: false }));
 app.listen(port, () => {
